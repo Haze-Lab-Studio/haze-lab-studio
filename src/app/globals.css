@@ -12,6 +12,7 @@
 @theme inline {
   --color-background: var(--off-white);
   --color-foreground: var(--espresso);
+  --font-sans: var(--font-josefin);
 }
 
 body {
@@ -75,23 +76,72 @@ body {
 
 /* Typography */
 .tagline {
-  font-family: var(--font-cormorant), Georgia, serif;
   font-weight: 400;
   font-style: italic;
   font-size: clamp(1.125rem, 2.5vw, 1.375rem);
   color: var(--sun-gold);
+  text-align: center;
 }
 
-.contact-link {
-  font-family: var(--font-josefin), system-ui, sans-serif;
+.body-copy {
   font-weight: 300;
-  font-size: 0.75rem;
+  font-size: clamp(0.875rem, 1.8vw, 1.0625rem);
+  color: var(--espresso);
+  line-height: 1.8;
+  max-width: 560px;
+}
+
+.section-label {
+  font-weight: 300;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--sun-gold);
+  text-transform: uppercase;
+}
+
+.app-name {
+  font-weight: 400;
+  font-size: clamp(1.75rem, 4vw, 2.375rem);
+  color: var(--espresso);
+}
+
+.app-descriptor {
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  color: color-mix(in srgb, var(--espresso) 70%, transparent);
+  line-height: 1.6;
+}
+
+.app-status {
+  font-weight: 300;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--pale-gold);
+  text-transform: uppercase;
+}
+
+.closing-line {
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: color-mix(in srgb, var(--espresso) 60%, transparent);
+  text-align: center;
+}
+
+.footer-contact {
+  font-weight: 300;
+  font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: lowercase;
-  color: color-mix(in srgb, var(--espresso) 60%, transparent);
-  transition: color 200ms ease;
+  color: color-mix(in srgb, var(--espresso) 55%, transparent);
+  text-decoration: none;
+  transition:
+    color 200ms ease,
+    text-decoration 200ms ease;
 }
 
-.contact-link:hover {
+.footer-contact:hover {
   color: var(--espresso);
+  text-decoration: underline;
 }
