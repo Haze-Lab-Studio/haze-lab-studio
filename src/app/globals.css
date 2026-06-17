@@ -62,16 +62,28 @@ body {
   animation-delay: 400ms;
 }
 
-.fade-up-delay-550 {
-  animation-delay: 550ms;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .fade-up {
     animation: none;
     opacity: 1;
     transform: none;
   }
+}
+
+/* Hero ghost word */
+.hero-ghost {
+  position: absolute;
+  bottom: -0.15em;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 400;
+  font-size: 20vw;
+  line-height: 1;
+  color: color-mix(in srgb, var(--espresso) 6%, transparent);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
 }
 
 /* Typography */
@@ -83,40 +95,60 @@ body {
   text-align: center;
 }
 
-.body-copy {
-  font-weight: 300;
-  font-size: clamp(0.875rem, 1.8vw, 1.0625rem);
+.statement-headline {
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.2;
   color: var(--espresso);
-  line-height: 1.8;
-  max-width: 560px;
+  max-width: 780px;
+}
+
+.statement-support {
+  font-weight: 300;
+  font-size: clamp(0.75rem, 1.4vw, 0.875rem);
+  color: color-mix(in srgb, var(--espresso) 60%, transparent);
+  letter-spacing: 0.05em;
+  max-width: 480px;
 }
 
 .section-label {
   font-weight: 300;
   font-size: 10px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.25em;
   color: var(--sun-gold);
   text-transform: uppercase;
 }
 
+.app-entry {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 200ms ease;
+}
+
+.app-entry:hover {
+  opacity: 0.8;
+}
+
 .app-name {
   font-weight: 400;
-  font-size: clamp(1.75rem, 4vw, 2.375rem);
+  font-size: clamp(3.25rem, 9vw, 6rem);
+  line-height: 0.9;
   color: var(--espresso);
 }
 
 .app-descriptor {
   font-weight: 300;
-  font-style: italic;
-  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
-  color: color-mix(in srgb, var(--espresso) 70%, transparent);
-  line-height: 1.6;
+  font-size: clamp(0.75rem, 1.4vw, 0.875rem);
+  color: color-mix(in srgb, var(--espresso) 65%, transparent);
+  line-height: 1.7;
+  max-width: 340px;
 }
 
 .app-status {
   font-weight: 300;
   font-size: 10px;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.2em;
   color: var(--pale-gold);
   text-transform: uppercase;
 }
@@ -125,23 +157,21 @@ body {
   font-weight: 400;
   font-style: italic;
   font-size: clamp(1rem, 2vw, 1.25rem);
-  color: color-mix(in srgb, var(--espresso) 60%, transparent);
+  color: color-mix(in srgb, var(--espresso) 50%, transparent);
   text-align: center;
 }
 
 .footer-contact {
   font-weight: 300;
   font-size: 11px;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.18em;
   text-transform: lowercase;
-  color: color-mix(in srgb, var(--espresso) 55%, transparent);
+  color: color-mix(in srgb, var(--espresso) 50%, transparent);
   text-decoration: none;
-  transition:
-    color 200ms ease,
-    text-decoration 200ms ease;
+  transition: opacity 200ms ease;
 }
 
 .footer-contact:hover {
-  color: var(--espresso);
+  opacity: 0.85;
   text-decoration: underline;
 }
