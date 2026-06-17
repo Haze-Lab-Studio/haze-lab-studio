@@ -20,15 +20,15 @@ body {
   color: var(--espresso);
 }
 
-/* Ambient radial glow */
-.ambient-glow {
-  position: fixed;
+/* Hero radial glow — scoped to hero section only */
+.hero-glow {
+  position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
   background: radial-gradient(
-    circle 300px at 50% 50%,
-    color-mix(in srgb, var(--pale-gold) 35%, transparent),
+    circle 350px at 50% 50%,
+    rgba(250, 199, 117, 0.4),
     transparent
   );
 }
@@ -37,7 +37,7 @@ body {
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -47,7 +47,7 @@ body {
 
 .fade-up {
   opacity: 0;
-  animation: fade-up 600ms ease-out forwards;
+  animation: fade-up 700ms ease-out forwards;
 }
 
 .fade-up-delay-0 {
@@ -58,8 +58,8 @@ body {
   animation-delay: 200ms;
 }
 
-.fade-up-delay-400 {
-  animation-delay: 400ms;
+.fade-up-delay-350 {
+  animation-delay: 350ms;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -68,22 +68,6 @@ body {
     opacity: 1;
     transform: none;
   }
-}
-
-/* Hero ghost word */
-.hero-ghost {
-  position: absolute;
-  bottom: -0.15em;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-weight: 400;
-  font-size: 20vw;
-  line-height: 1;
-  color: color-mix(in srgb, var(--espresso) 6%, transparent);
-  pointer-events: none;
-  user-select: none;
-  white-space: nowrap;
 }
 
 /* Typography */
@@ -97,42 +81,46 @@ body {
 
 .statement-headline {
   font-weight: 400;
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  line-height: 1.2;
+  font-style: italic;
+  font-size: clamp(2.25rem, 5.5vw, 4rem);
+  line-height: 1.15;
   color: var(--espresso);
-  max-width: 780px;
+  max-width: 720px;
 }
 
 .statement-support {
   font-weight: 300;
-  font-size: clamp(0.75rem, 1.4vw, 0.875rem);
-  color: color-mix(in srgb, var(--espresso) 60%, transparent);
-  letter-spacing: 0.05em;
-  max-width: 480px;
+  font-size: clamp(0.6875rem, 1.3vw, 0.8125rem);
+  letter-spacing: 0.08em;
+  color: color-mix(in srgb, var(--espresso) 55%, transparent);
+  max-width: 400px;
 }
 
 .section-label {
   font-weight: 300;
   font-size: 10px;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.28em;
   color: var(--sun-gold);
   text-transform: uppercase;
 }
 
-.app-entry {
-  display: block;
-  color: inherit;
-  text-decoration: none;
-  transition: opacity 200ms ease;
+.work-rule {
+  height: 1px;
+  width: 100%;
+  border: 0;
+  background: color-mix(in srgb, var(--espresso) 15%, transparent);
 }
 
-.app-entry:hover {
-  opacity: 0.8;
+.work-divider {
+  height: 1px;
+  width: 100%;
+  border: 0;
+  background: color-mix(in srgb, var(--espresso) 12%, transparent);
 }
 
 .app-name {
   font-weight: 400;
-  font-size: clamp(3.25rem, 9vw, 6rem);
+  font-size: clamp(3.5rem, 10vw, 6.75rem);
   line-height: 0.9;
   color: var(--espresso);
 }
@@ -140,16 +128,16 @@ body {
 .app-descriptor {
   font-weight: 300;
   font-size: clamp(0.75rem, 1.4vw, 0.875rem);
-  color: color-mix(in srgb, var(--espresso) 65%, transparent);
-  line-height: 1.7;
-  max-width: 340px;
+  line-height: 1.75;
+  color: color-mix(in srgb, var(--espresso) 70%, transparent);
+  max-width: 320px;
 }
 
 .app-status {
   font-weight: 300;
   font-size: 10px;
-  letter-spacing: 0.2em;
-  color: var(--pale-gold);
+  letter-spacing: 0.22em;
+  color: color-mix(in srgb, var(--espresso) 40%, transparent);
   text-transform: uppercase;
 }
 
@@ -157,7 +145,7 @@ body {
   font-weight: 400;
   font-style: italic;
   font-size: clamp(1rem, 2vw, 1.25rem);
-  color: color-mix(in srgb, var(--espresso) 50%, transparent);
+  color: color-mix(in srgb, var(--espresso) 45%, transparent);
   text-align: center;
 }
 
@@ -172,6 +160,6 @@ body {
 }
 
 .footer-contact:hover {
-  opacity: 0.85;
+  opacity: 0.8;
   text-decoration: underline;
 }
