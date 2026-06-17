@@ -7,6 +7,19 @@
   --warm-cream: #faeeda;
   --off-white: #fdf8f2;
   --rule: #e8d9c4;
+
+  /* Typography scale */
+  --text-tagline: clamp(1.125rem, 2.5vw, 1.375rem);
+  --text-display: clamp(2.25rem, 5.5vw, 4rem);
+  --text-body: clamp(14px, 1.4vw, 1.125rem);
+  --text-label: 13px;
+  --text-app-name: clamp(40px, 6vw, 60px);
+  --text-status: clamp(11px, 1.2vw, 15px);
+  --text-closing: 1.25rem;
+  --text-contact: 0.75rem;
+  --text-footer-ghost: clamp(80px, 16vw, 160px);
+  --text-footer-small: 11px;
+  --text-footer-copyright: 0.9375rem;
 }
 
 @theme inline {
@@ -20,17 +33,13 @@ body {
   color: var(--espresso);
 }
 
-/* Hero radial glow — scoped to hero section only */
-.hero-glow {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background: radial-gradient(
-    circle 350px at 50% 50%,
-    rgba(250, 199, 117, 0.45),
-    transparent
-  );
+/* Hero */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(350px, #fac77573, #0000),
+    var(--off-white);
 }
 
 /* Entrance animation */
@@ -74,7 +83,7 @@ body {
 .tagline {
   font-weight: 400;
   font-style: italic;
-  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+  font-size: var(--text-tagline);
   color: var(--sun-gold);
   text-align: center;
 }
@@ -82,26 +91,32 @@ body {
 .statement-headline {
   font-weight: 400;
   font-style: italic;
-  font-size: clamp(2.25rem, 5.5vw, 4rem);
+  font-size: var(--text-display);
   line-height: 1.15;
   color: var(--espresso);
-  max-width: 720px;
 }
 
 .statement-support {
   font-weight: 300;
-  font-size: 15px;
+  font-size: var(--text-body);
   letter-spacing: 0.08em;
   color: color-mix(in srgb, var(--espresso) 55%, transparent);
-  max-width: 400px;
 }
 
 .section-label {
   font-weight: 300;
-  font-size: 13px;
+  font-size: var(--text-label);
   letter-spacing: 0.28em;
   color: color-mix(in srgb, var(--espresso) 40%, transparent);
   text-transform: uppercase;
+}
+
+.work-section {
+  background: var(--espresso);
+}
+
+.work-section .section-label {
+  color: var(--sun-gold);
 }
 
 .work-rule {
@@ -111,6 +126,10 @@ body {
   background: color-mix(in srgb, var(--espresso) 15%, transparent);
 }
 
+.work-section .work-rule {
+  background: color-mix(in srgb, var(--warm-cream) 20%, transparent);
+}
+
 .work-divider {
   height: 1px;
   width: 100%;
@@ -118,40 +137,56 @@ body {
   background: color-mix(in srgb, var(--espresso) 12%, transparent);
 }
 
+.work-section .work-divider {
+  background: color-mix(in srgb, var(--warm-cream) 15%, transparent);
+}
+
 .app-name {
   font-weight: 400;
-  font-size: clamp(40px, 6vw, 72px);
+  font-size: var(--text-app-name);
   line-height: 0.9;
   color: var(--espresso);
 }
 
+.work-section .app-name {
+  color: var(--warm-cream);
+}
+
 .app-descriptor {
   font-weight: 300;
-  font-size: 15px;
+  font-size: var(--text-body);
   line-height: 1.75;
   color: color-mix(in srgb, var(--espresso) 70%, transparent);
   max-width: 320px;
 }
 
+.work-section .app-descriptor {
+  color: color-mix(in srgb, var(--warm-cream) 65%, transparent);
+}
+
 .app-status {
   font-weight: 300;
-  font-size: 10px;
+  font-size: var(--text-status);
   letter-spacing: 0.22em;
   color: color-mix(in srgb, var(--espresso) 40%, transparent);
   text-transform: uppercase;
 }
 
+.work-section .app-status {
+  color: var(--pale-gold);
+}
+
 .closing-line {
   font-weight: 400;
   font-style: italic;
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: var(--text-closing);
   color: color-mix(in srgb, var(--espresso) 45%, transparent);
   text-align: center;
 }
 
 .footer-contact {
   font-weight: 300;
-  font-size: 11px;
+  font-size: var(--text-contact);
   letter-spacing: 0.18em;
   text-transform: lowercase;
   color: color-mix(in srgb, var(--espresso) 50%, transparent);
@@ -162,4 +197,54 @@ body {
 .footer-contact:hover {
   opacity: 0.8;
   text-decoration: underline;
+}
+
+/* Footer */
+.footer-ghost {
+  font-weight: 400;
+  font-size: var(--text-footer-ghost);
+  line-height: 1;
+  color: color-mix(in srgb, var(--espresso) 5%, transparent);
+  text-align: center;
+  user-select: none;
+  pointer-events: none;
+}
+
+.footer-tagline {
+  font-weight: 300;
+  font-size: var(--text-footer-small);
+  letter-spacing: 0.2em;
+  color: color-mix(in srgb, var(--espresso) 35%, transparent);
+  text-transform: lowercase;
+  text-align: center;
+}
+
+.footer-email {
+  font-weight: 300;
+  font-size: var(--text-footer-small);
+  letter-spacing: 0.18em;
+  text-transform: lowercase;
+  color: color-mix(in srgb, var(--espresso) 45%, transparent);
+  text-decoration: none;
+  transition: opacity 200ms ease;
+}
+
+.footer-email:hover {
+  opacity: 0.75;
+  text-decoration: underline;
+}
+
+.footer-rule {
+  height: 1px;
+  width: 120px;
+  border: 0;
+  background: var(--rule);
+}
+
+.footer-copyright {
+  font-weight: 300;
+  font-size: var(--text-footer-copyright);
+  letter-spacing: 0.15em;
+  color: color-mix(in srgb, var(--espresso) 30%, transparent);
+  text-align: center;
 }

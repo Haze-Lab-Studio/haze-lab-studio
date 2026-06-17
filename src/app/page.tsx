@@ -19,8 +19,7 @@ const apps = [
 export default function Home() {
   return (
     <main className="overflow-x-hidden">
-      <section className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden bg-[var(--off-white)]">
-        <div className="hero-glow" aria-hidden="true" />
+      <section className="hero-section flex min-h-svh flex-col items-center justify-center">
         <h1 className="sr-only">Haze Lab Studio</h1>
         <Image
           src="/logo-dark.svg"
@@ -28,20 +27,20 @@ export default function Home() {
           width={280}
           height={80}
           priority
-          className="fade-up fade-up-delay-0 relative z-[1] h-auto w-[200px] sm:w-[280px]"
+          className="fade-up fade-up-delay-0 h-auto w-[200px] sm:w-[280px]"
         />
         <hr
-          className="fade-up fade-up-delay-200 relative z-[1] mx-auto my-8 h-px w-[120px] border-0 bg-[var(--rule)]"
+          className="fade-up fade-up-delay-200 mx-auto my-8 h-px w-[120px] border-0 bg-[var(--rule)]"
           aria-hidden="true"
         />
         <p
-          className={`${cormorant.className} fade-up fade-up-delay-350 tagline relative z-[1]`}
+          className={`${cormorant.className} fade-up fade-up-delay-350 tagline`}
         >
           Taste is the brief.
         </p>
       </section>
 
-      <section className="bg-[var(--off-white)] py-[clamp(100px,14vw,160px)]">
+      <section className="bg-[var(--warm-cream)] py-[clamp(100px,14vw,160px)]">
         <div className="mx-auto max-w-[1080px] px-[clamp(24px,6vw,80px)]">
           <p className={`${cormorant.className} statement-headline`}>
             We build things we&apos;d want to use.
@@ -54,7 +53,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[var(--warm-cream)] py-[clamp(80px,10vw,130px)]">
+      <section className="work-section py-[clamp(80px,10vw,130px)]">
         <div className="mx-auto max-w-[1080px] px-[clamp(24px,6vw,80px)]">
           <p className="section-label mb-5">Work</p>
           <hr className="work-rule" aria-hidden="true" />
@@ -63,7 +62,7 @@ export default function Home() {
               <div key={app.id}>
                 {index > 0 && (
                   <hr
-                    className="work-divider mb-[clamp(48px,6vw,72px)] md:hidden"
+                    className="work-divider my-[clamp(48px,6vw,72px)] md:hidden"
                     aria-hidden="true"
                   />
                 )}
@@ -82,13 +81,18 @@ export default function Home() {
 
       <section className="bg-[var(--off-white)] pt-[clamp(80px,10vw,120px)] pb-20">
         <div className="mx-auto max-w-[1080px] px-[clamp(24px,6vw,80px)]">
-          <hr
-            className="h-px w-full border-0 bg-[var(--rule)]"
-            aria-hidden="true"
-          />
+
           <div className="mt-12 flex flex-col items-center">
+            <Image
+              src="/logo-dark.svg"
+              alt="HazeLab Studio"
+              width={150}
+              height={43}
+              priority
+              className="mb-8 h-auto w-[150px]"
+            />
             <p className={`${cormorant.className} closing-line`}>
-              Taste is the brief.
+              Not a software house.
             </p>
             <a
               href="mailto:hello@hazelabstudio.com"
@@ -100,6 +104,20 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <footer className="bg-[var(--off-white)] pt-0 pb-[clamp(40px,6vw,64px)]">
+        <div className="mx-auto flex flex-col items-center px-[clamp(24px,6vw,80px)]">
+          <div className="mt-8 flex w-full flex-col items-center">
+            <hr
+              className="h-px w-full border-0 bg-[var(--rule)]"
+              aria-hidden="true"
+            />
+            <p className="footer-copyright mt-6">
+              © 2025 Haze Lab Studio
+            </p>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
