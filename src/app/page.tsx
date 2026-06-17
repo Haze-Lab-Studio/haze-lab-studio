@@ -27,11 +27,7 @@ export default function Home() {
           width={280}
           height={80}
           priority
-          className="fade-up fade-up-delay-0 h-auto w-[200px] sm:w-[280px]"
-        />
-        <hr
-          className="fade-up fade-up-delay-200 mx-auto my-8 h-px w-[120px] border-0 bg-[var(--rule)]"
-          aria-hidden="true"
+          className="fade-up fade-up-delay-0 mb-8 h-auto w-[200px] sm:w-[280px]"
         />
         <p
           className={`${cormorant.className} fade-up fade-up-delay-350 tagline`}
