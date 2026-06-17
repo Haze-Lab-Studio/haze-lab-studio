@@ -28,7 +28,7 @@ body {
   pointer-events: none;
   background: radial-gradient(
     circle 350px at 50% 50%,
-    rgba(250, 199, 117, 0.4),
+    rgba(250, 199, 117, 0.45),
     transparent
   );
 }
@@ -90,7 +90,7 @@ body {
 
 .statement-support {
   font-weight: 300;
-  font-size: clamp(0.6875rem, 1.3vw, 0.8125rem);
+  font-size: 15px;
   letter-spacing: 0.08em;
   color: color-mix(in srgb, var(--espresso) 55%, transparent);
   max-width: 400px;
@@ -98,9 +98,9 @@ body {
 
 .section-label {
   font-weight: 300;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.28em;
-  color: var(--sun-gold);
+  color: color-mix(in srgb, var(--espresso) 40%, transparent);
   text-transform: uppercase;
 }
 
@@ -120,14 +120,14 @@ body {
 
 .app-name {
   font-weight: 400;
-  font-size: clamp(3.5rem, 10vw, 6.75rem);
+  font-size: clamp(40px, 6vw, 72px);
   line-height: 0.9;
   color: var(--espresso);
 }
 
 .app-descriptor {
   font-weight: 300;
-  font-size: clamp(0.75rem, 1.4vw, 0.875rem);
+  font-size: 15px;
   line-height: 1.75;
   color: color-mix(in srgb, var(--espresso) 70%, transparent);
   max-width: 320px;
