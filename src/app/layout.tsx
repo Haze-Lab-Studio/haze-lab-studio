@@ -1,10 +1,23 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Cormorant_Garamond, Geist, Josefin_Sans } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
+});
+
+const josefin = Josefin_Sans({
+  subsets: ["latin"],
+  weight: ["100", "300"],
+  variable: "--font-josefin",
 });
 
 export const metadata: Metadata = {
@@ -18,7 +31,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${cormorant.variable} ${josefin.variable} h-full antialiased`}
+    >
       <body className="flex min-h-full flex-col bg-background text-foreground">
         {children}
       </body>
