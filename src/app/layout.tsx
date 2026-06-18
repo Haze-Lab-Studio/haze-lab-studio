@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import Script from "next/script";
 import { cormorant, josefin } from "./fonts";
 import "./globals.css";
