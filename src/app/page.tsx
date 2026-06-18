@@ -109,7 +109,7 @@ export default function Home() {
               aria-hidden="true"
             />
             <p className="footer-copyright mt-6">
-              © 2025 Haze Lab Studio
+              © 2026 Haze Lab Studio
             </p>
           </div>
         </div>
