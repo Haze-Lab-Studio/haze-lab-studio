@@ -42,6 +42,7 @@ export default function RootLayout({
           />
         </noscript>
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
