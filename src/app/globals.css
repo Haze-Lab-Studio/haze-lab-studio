@@ -679,3 +679,41 @@ body {
     right: 4px;
   }
 }
+
+/* ==========================================================================
+   Motion
+   Everything below is progressive enhancement: content is fully visible
+   without it, and prefers-reduced-motion switches the animations off.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Scroll progress bar (scroll-driven animation, no JS) */
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 70;
+  height: 2px;
+  background: linear-gradient(90deg, var(--sun-gold), var(--pale-gold));
+  transform-origin: left;
+  transform: scaleX(0);
+  pointer-events: none;
+}
+
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    animation: progress-grow linear both;
+    animation-timeline: scroll(root block);
+  }
+}
+
+@keyframes progress-grow {
+  to {
+    transform: scaleX(1);
+  }
+}
+
