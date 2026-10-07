@@ -179,6 +179,30 @@ export default function PortfolioPage() {
         </div>
       </section>
 
+      <section className="bg-[var(--off-white)] pt-0 pb-20">
+        <div className="mx-auto max-w-[1080px] px-[clamp(24px,6vw,80px)]">
+          <div className="mt-12 flex flex-col items-center">
+            <Image
+              src="/logo-dark.svg"
+              alt="HazeLab Studio"
+              width={150}
+              height={43}
+              className="mb-8 h-auto w-[150px]"
+            />
+            <p className={`${cormorant.className} closing-line`}>
+              Not a software house.
+            </p>
+            <a
+              href="mailto:hello@hazelabstudio.com"
+              aria-label="Email Haze Lab Studio"
+              className="footer-contact mt-6"
+            >
+              hello@hazelabstudio.com
+            </a>
+          </div>
+        </div>
+      </section>
+
       <footer className="bg-[var(--off-white)] pt-0 pb-[clamp(40px,6vw,64px)]">
         <div className="mx-auto flex flex-col items-center px-[clamp(24px,6vw,80px)]">
           <div className="mt-8 flex w-full flex-col items-center">
@@ -186,7 +210,7 @@ export default function PortfolioPage() {
               className="h-px w-full border-0 bg-[var(--rule)]"
               aria-hidden="true"
             />
-            <p className="footer-copyright mt-6">© 2026 Gabi Candido</p>
+            <p className="footer-copyright mt-6">© 2026 Haze Lab Studio</p>
           </div>
         </div>
       </footer>
