@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { cormorant } from "../fonts";
+import Reveal from "../components/Reveal";
+import SplitWords from "../components/SplitWords";
 import { bioImages, caseStudies } from "./data";
 import CasesGrid from "./CasesGrid";
 
@@ -25,19 +27,26 @@ export default function PortfolioPage() {
   return (
     <main className="overflow-x-hidden">
       <section className="portfolio-hero flex min-h-[40svh] flex-col items-center justify-center py-[clamp(64px,10vw,96px)]">
-        <p className="section-label mb-5">Portfolio</p>
-        <h1 className={`${cormorant.className} portfolio-name`}>
-          Gabi Candido
+        <p className="section-label fade-up fade-up-delay-0 mb-5">Portfolio</p>
+        <h1 className={`${cormorant.className} portfolio-name split-load`}>
+          <SplitWords text="Gabi Candido" />
         </h1>
-        <p className="portfolio-role mt-4">WordPress Front-End Developer</p>
+        <p className="portfolio-role fade-up fade-up-delay-700 mt-4">
+          WordPress Front-End Developer
+        </p>
       </section>
 
       <section className="bg-[var(--warm-cream)] py-[clamp(80px,10vw,130px)]">
         <div className="mx-auto max-w-[1080px] px-[clamp(24px,6vw,80px)]">
-          <p className="section-label mb-5">Bio</p>
-          <hr className="work-rule" aria-hidden="true" />
+          <Reveal variant="rule">
+            <p className="section-label mb-5">Bio</p>
+            <hr className="work-rule" aria-hidden="true" />
+          </Reveal>
 
-          <div className="mt-[clamp(40px,6vw,64px)] flex flex-col gap-6">
+          <Reveal
+            variant="children"
+            className="mt-[clamp(40px,6vw,64px)] flex flex-col gap-6"
+          >
             <p className="portfolio-body">
               I&apos;m a WordPress Front-End Developer with 10+ years of
               experience and a solid foundation in HTML and CSS. I began my
@@ -74,10 +83,10 @@ export default function PortfolioPage() {
               been putting my Advertising studies to work, helping him with
               marketing and some design work.
             </p>
-          </div>
+          </Reveal>
         </div>
 
-        <div className="portfolio-carousel mt-[clamp(56px,8vw,88px)]">
+        <Reveal className="portfolio-carousel mt-[clamp(56px,8vw,88px)]">
           <div className="portfolio-carousel-track">
             {carouselImages.map((img, i) => (
               <div key={i} className="portfolio-carousel-item">
@@ -91,15 +100,20 @@ export default function PortfolioPage() {
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
       </section>
 
       <section className="work-section py-[clamp(80px,10vw,130px)]">
         <div className="mx-auto max-w-[1080px] px-[clamp(24px,6vw,80px)]">
-          <p className="section-label mb-5">Development Work</p>
-          <hr className="work-rule" aria-hidden="true" />
+          <Reveal variant="rule">
+            <p className="section-label mb-5">Development Work</p>
+            <hr className="work-rule" aria-hidden="true" />
+          </Reveal>
 
-          <div className="mt-[clamp(40px,6vw,64px)] flex flex-col gap-6">
+          <Reveal
+            variant="children"
+            className="mt-[clamp(40px,6vw,64px)] flex flex-col gap-6"
+          >
             <p className="portfolio-body portfolio-body-dark">
               WordPress has been the backbone of my career — years of
               building custom themes, working with ACF and Gutenberg, and
@@ -149,7 +163,7 @@ export default function PortfolioPage() {
               with React Native — from idea through to launch. We&apos;ll
               soon be releasing our first app.
             </p>
-          </div>
+          </Reveal>
         </div>
 
         {/* Mosaic hidden for now — re-enable by uncommenting and restoring the devImages import.
@@ -171,8 +185,10 @@ export default function PortfolioPage() {
 
       <section className="bg-[var(--off-white)] py-[clamp(80px,10vw,130px)]">
         <div className="mx-auto max-w-[1080px] px-[clamp(24px,6vw,80px)]">
-          <p className="section-label mb-5">Cases</p>
-          <hr className="work-rule" aria-hidden="true" />
+          <Reveal variant="rule">
+            <p className="section-label mb-5">Cases</p>
+            <hr className="work-rule" aria-hidden="true" />
+          </Reveal>
           <div className="mt-[clamp(40px,6vw,64px)]">
             <CasesGrid cases={caseStudies} />
           </div>
