@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { cormorant } from "./fonts";
+import Reveal from "./components/Reveal";
+import SplitWords from "./components/SplitWords";
 
 const apps = [
   {
@@ -21,38 +23,47 @@ export default function Home() {
     <main className="overflow-x-hidden">
       <section className="hero-section flex min-h-svh flex-col items-center justify-center">
         <h1 className="sr-only">Haze Lab Studio</h1>
-        <Image
-          src="/logo-dark.svg"
-          alt="HazeLab Studio"
-          width={280}
-          height={80}
-          priority
-          className="fade-up fade-up-delay-0 mb-8 h-auto w-[200px] sm:w-[280px]"
-        />
-        <p
-          className={`${cormorant.className} fade-up fade-up-delay-350 tagline`}
-        >
-          Taste is the brief.
-        </p>
+        <div className="hero-content flex flex-col items-center">
+          <Image
+            src="/logo-dark.svg"
+            alt="HazeLab Studio"
+            width={280}
+            height={80}
+            priority
+            className="fade-in fade-up-delay-0 mb-8 h-auto w-[200px] sm:w-[280px]"
+          />
+          <p
+            className={`${cormorant.className} fade-in fade-up-delay-350 tagline`}
+          >
+            Taste is the brief.
+          </p>
+        </div>
+        <span className="scroll-cue" aria-hidden="true" />
       </section>
 
       <section className="bg-[var(--warm-cream)] py-[clamp(100px,14vw,160px)]">
         <div className="mx-auto max-w-[1080px] px-[clamp(24px,6vw,80px)]">
-          <p className={`${cormorant.className} statement-headline`}>
-            We build things we&apos;d want to use.
-            <br />
-            Then we share them.
-          </p>
-          <p className="statement-support mt-10">
-            An independent studio. No briefs we don&apos;t believe in.
-          </p>
+          <Reveal variant="words">
+            <p className={`${cormorant.className} statement-headline`}>
+              <SplitWords text="We build things we'd want to use." />
+              <br />
+              <SplitWords text="Then we share them." start={7} />
+            </p>
+          </Reveal>
+          <Reveal delay={600} className="mt-10">
+            <p className="statement-support">
+              An independent studio. No briefs we don&apos;t believe in.
+            </p>
+          </Reveal>
         </div>
       </section>
 
       <section className="work-section py-[clamp(80px,10vw,130px)]">
         <div className="mx-auto max-w-[1080px] px-[clamp(24px,6vw,80px)]">
-          <p className="section-label mb-5">Work</p>
-          <hr className="work-rule" aria-hidden="true" />
+          <Reveal variant="rule">
+            <p className="section-label mb-5">Work</p>
+            <hr className="work-rule" aria-hidden="true" />
+          </Reveal>
           <div className="mt-[clamp(48px,6vw,72px)] flex flex-col md:grid md:grid-cols-2 md:gap-[clamp(48px,8vw,96px)]">
             {apps.map((app, index) => (
               <div key={app.id}>
@@ -62,13 +73,15 @@ export default function Home() {
                     aria-hidden="true"
                   />
                 )}
-                <article id={app.id}>
-                  <h2 className={`${cormorant.className} app-name`}>
-                    {app.name}
-                  </h2>
-                  <p className="app-descriptor mt-6">{app.descriptor}</p>
-                  <p className="app-status mt-8">Coming soon</p>
-                </article>
+                <Reveal delay={index * 150}>
+                  <article id={app.id}>
+                    <h2 className={`${cormorant.className} app-name`}>
+                      {app.name}
+                    </h2>
+                    <p className="app-descriptor mt-6">{app.descriptor}</p>
+                    <p className="app-status mt-8">Coming soon</p>
+                  </article>
+                </Reveal>
               </div>
             ))}
           </div>
@@ -78,7 +91,7 @@ export default function Home() {
       <section className="bg-[var(--off-white)] pt-[clamp(80px,10vw,120px)] pb-20">
         <div className="mx-auto max-w-[1080px] px-[clamp(24px,6vw,80px)]">
 
-          <div className="mt-12 flex flex-col items-center">
+          <Reveal className="mt-12 flex flex-col items-center">
             <Image
               src="/logo-dark.svg"
               alt="HazeLab Studio"
@@ -97,7 +110,7 @@ export default function Home() {
             >
               hello@hazelabstudio.com
             </a>
-          </div>
+          </Reveal>
         </div>
       </section>
 
