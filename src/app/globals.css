@@ -993,6 +993,35 @@ body {
   animation: modal-pop 350ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .split-load .word {
+    animation: none;
+    opacity: 1;
+  }
+
+  .hero-section::before,
+  .scroll-cue,
+  .scroll-cue::after,
+  .app-status::before,
+  .scroll-progress,
+  .hero-content,
+  .case-modal-backdrop,
+  .lightbox-backdrop,
+  .case-modal,
+  .lightbox-image {
+    animation: none;
+  }
+
+  .scroll-cue {
+    opacity: 1;
+  }
+
+  .case-card {
+    transform: none;
+    transition: none;
+  }
+}
+
 /* 404 page */
 .nf {
   padding-block: clamp(24px, 6vh, 56px);
