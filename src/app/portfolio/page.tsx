@@ -3,6 +3,7 @@ import Image from "next/image";
 import { cormorant } from "../fonts";
 import Reveal from "../components/Reveal";
 import SplitWords from "../components/SplitWords";
+import TopBar from "../components/TopBar";
 import { bioImages, caseStudies } from "./data";
 import CasesGrid from "./CasesGrid";
 
@@ -25,7 +26,9 @@ export default function PortfolioPage() {
   const carouselImages = [...bioImages, ...bioImages];
 
   return (
-    <main className="overflow-x-hidden">
+    <main id="top" className="overflow-x-hidden">
+      <TopBar pinned />
+
       <section className="portfolio-hero flex min-h-[40svh] flex-col items-center justify-center py-[clamp(64px,10vw,96px)]">
         <p className="section-label fade-up fade-up-delay-0 mb-5">Portfolio</p>
         <h1 className={`${cormorant.className} portfolio-name split-load`}>
@@ -35,6 +38,8 @@ export default function PortfolioPage() {
           WordPress Front-End Developer
         </p>
       </section>
+
+      <div id="topbar-sentinel" className="topbar-sentinel" aria-hidden="true" />
 
       <section className="bg-[var(--warm-cream)] py-[clamp(80px,10vw,130px)]">
         <div className="mx-auto max-w-[1080px] px-[clamp(24px,6vw,80px)]">

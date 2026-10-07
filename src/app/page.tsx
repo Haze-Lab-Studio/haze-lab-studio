@@ -2,6 +2,7 @@ import Image from "next/image";
 import { cormorant } from "./fonts";
 import Reveal from "./components/Reveal";
 import SplitWords from "./components/SplitWords";
+import TopBar from "./components/TopBar";
 
 const apps = [
   {
@@ -20,7 +21,7 @@ const apps = [
 
 export default function Home() {
   return (
-    <main className="overflow-x-hidden">
+    <main id="top" className="overflow-x-hidden">
       <section className="hero-section flex min-h-svh flex-col items-center justify-center">
         <h1 className="sr-only">Haze Lab Studio</h1>
         <div className="hero-content flex flex-col items-center">
@@ -40,6 +41,8 @@ export default function Home() {
         </div>
         <span className="scroll-cue" aria-hidden="true" />
       </section>
+
+      <TopBar />
 
       <section className="bg-[var(--warm-cream)] py-[clamp(100px,14vw,160px)]">
         <div className="mx-auto max-w-[1080px] px-[clamp(24px,6vw,80px)]">

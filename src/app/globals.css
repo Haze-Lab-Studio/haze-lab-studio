@@ -1129,3 +1129,67 @@ body {
   }
 }
 
+/* Top bar (home): slides in once the hero is behind us */
+.topbar-sentinel {
+  height: 1px;
+  margin-bottom: -1px;
+  pointer-events: none;
+}
+
+.topbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 40;
+  padding-block: 14px;
+  background: color-mix(in srgb, var(--off-white) 88%, transparent);
+  border-bottom: 1px solid var(--rule);
+  backdrop-filter: blur(12px);
+  transform: translateY(-100%);
+  visibility: hidden;
+  transition:
+    transform 450ms cubic-bezier(0.22, 0.7, 0.2, 1),
+    visibility 0s linear 450ms;
+}
+
+.topbar[data-visible="true"] {
+  transform: none;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+/* In-flow copy used at the top of the portfolio before the fixed bar takes over */
+.topbar-static {
+  position: relative;
+  z-index: auto;
+  transform: none;
+  visibility: visible;
+  transition: none;
+}
+
+.topbar-contact {
+  padding: 0.55rem 1.3rem;
+  border: 1px solid color-mix(in srgb, var(--espresso) 35%, transparent);
+  border-radius: 999px;
+  font-size: var(--text-contact);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--espresso);
+  text-decoration: none;
+  transition:
+    background 250ms ease,
+    color 250ms ease,
+    border-color 250ms ease;
+}
+
+.topbar-contact:hover,
+.topbar-contact:focus-visible {
+  background: var(--espresso);
+  border-color: var(--espresso);
+  color: var(--warm-cream);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .topbar {
+    transition: none;
+  }
+}
