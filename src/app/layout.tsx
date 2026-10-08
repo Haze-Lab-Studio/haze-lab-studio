@@ -41,6 +41,7 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
+        <div className="scroll-progress" aria-hidden="true" />
         {children}
         <SpeedInsights />
       </body>

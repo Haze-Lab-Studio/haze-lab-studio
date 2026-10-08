@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { cormorant } from "../fonts";
+import Reveal from "../components/Reveal";
 import type { CaseStudy } from "./data";
 
 export default function CasesGrid({ cases }: { cases: CaseStudy[] }) {
@@ -12,6 +13,24 @@ export default function CasesGrid({ cases }: { cases: CaseStudy[] }) {
   const active = activeCaseIndex !== -1 ? cases[activeCaseIndex] : null;
   const lightboxImage =
     active && lightboxIndex !== null ? active.gallery[lightboxIndex] : null;
+
+  const tiltMove = (e: React.PointerEvent<HTMLButtonElement>) => {
+    if (e.pointerType !== "mouse") return;
+    const el = e.currentTarget;
+    const rect = el.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+    el.style.setProperty("--tilt-x", `${(x - 0.5) * 8}deg`);
+    el.style.setProperty("--tilt-y", `${(0.5 - y) * 8}deg`);
+    el.style.setProperty("--mx", `${x * 100}%`);
+    el.style.setProperty("--my", `${y * 100}%`);
+  };
+
+  const tiltReset = (e: React.PointerEvent<HTMLButtonElement>) => {
+    const el = e.currentTarget;
+    el.style.setProperty("--tilt-x", "0deg");
+    el.style.setProperty("--tilt-y", "0deg");
+  };
 
   const closeModal = () => {
     setLightboxIndex(null);
@@ -80,25 +99,28 @@ export default function CasesGrid({ cases }: { cases: CaseStudy[] }) {
     <>
       <div className="case-grid">
         {cases.map((c) => (
-          <button
-            key={c.id}
-            type="button"
-            className="case-card"
-            onClick={() => setActiveId(c.id)}
-            aria-haspopup="dialog"
-          >
-            <Image
-              src={c.cover}
-              alt={c.title}
-              fill
-              sizes="(min-width: 768px) 50vw, 100vw"
-              className="case-card-image"
-            />
-            <span className="case-card-hover">{c.hoverNote}</span>
-            <span className={`${cormorant.className} case-card-title`}>
-              {c.title}
-            </span>
-          </button>
+          <Reveal key={c.id}>
+            <button
+              type="button"
+              className="case-card"
+              onClick={() => setActiveId(c.id)}
+              onPointerMove={tiltMove}
+              onPointerLeave={tiltReset}
+              aria-haspopup="dialog"
+            >
+              <Image
+                src={c.cover}
+                alt={c.title}
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="case-card-image"
+              />
+              <span className="case-card-hover">{c.hoverNote}</span>
+              <span className={`${cormorant.className} case-card-title`}>
+                {c.title}
+              </span>
+            </button>
+          </Reveal>
         ))}
       </div>
 
@@ -110,7 +132,11 @@ export default function CasesGrid({ cases }: { cases: CaseStudy[] }) {
           aria-label={active.title}
           onClick={closeModal}
         >
-          <div className="case-modal" onClick={(e) => e.stopPropagation()}>
+          <div
+            key={active.id}
+            className="case-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
               type="button"
               className="case-modal-close"
@@ -239,6 +265,7 @@ export default function CasesGrid({ cases }: { cases: CaseStudy[] }) {
             </>
           )}
           <img
+            key={lightboxImage.src}
             src={lightboxImage.src}
             alt={lightboxImage.alt}
             className="lightbox-image"
