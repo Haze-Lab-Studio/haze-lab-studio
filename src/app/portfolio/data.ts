@@ -53,11 +53,12 @@ export const caseStudies: CaseStudy[] = [
     id: "my-mood-cycle",
     title: "My Mood Cycle",
     cover: "/portfolio/cases/my-mood-cycle/cover.jpg",
-    hoverNote: "Next.js · Tailwind CSS · Brand & Marketing",
+    hoverNote: "React Native · Expo · Next.js · Brand & Marketing",
     credit: "Haze Lab Studio — my own product",
     description: [
       "Planned My Mood Cycle from scratch as a full product at Haze Lab Studio — designed the logo, the website, and the marketing materials, including the Emotional Cycle Guide, a free downloadable guide that introduces the app's core idea.",
-      "Built with Next.js (App Router) and Tailwind CSS.",
+      "The website is built with Next.js (App Router) and Tailwind CSS.",
+      "The mobile app is built with React Native, Expo, and TypeScript, and it's currently in the app-store publishing process. I'm building it with AI coding tools as my development partner rather than writing every line myself, which lets me focus on the product, the experience, and the details.",
       "Put together the entire launch plan: social media strategy and content, video concepts, and the video editing itself — all while developing the app, with some help from my husband.",
     ],
     gallery: [
