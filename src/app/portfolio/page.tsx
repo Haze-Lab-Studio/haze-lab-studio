@@ -66,12 +66,13 @@ export default function PortfolioPage() {
               help them grow in their careers.
             </p>
             <p className="portfolio-body">
-              In 2026, I founded Haze Lab Studio as a way to get back into
-              the market after taking a sabbatical to dedicate myself to
-              other aspects of my life. We&apos;re gearing up to launch our
-              first app soon. Around the same time, my husband founded his
-              own game development company, Low Light Games, and I&apos;ve
-              been putting my Advertising studies to work, helping him with
+              In January 2024, I founded Haze Lab Studio, and I&apos;ve been
+              taking on freelance front-end projects through it since leaving
+              BairesDev. Since January 2026, I&apos;ve also been building a
+              mobile app, My Mood Cycle, which is now in the app-store
+              publishing process. My husband also founded his own game
+              development company, Low Light Games, and I&apos;ve been
+              putting my Advertising studies to work, helping him with
               marketing and some design work.
             </p>
           </div>
@@ -137,17 +138,18 @@ export default function PortfolioPage() {
               stint at Watson Creative had me handling WordPress projects
               end-to-end, from front-end builds to light infrastructure work
               on Pantheon, collaborating closely with designers and
-              strategists along the way. Most recently, at BairesDev, I
-              worked with JavaScript, using the platform&apos;s API to build
-              custom digital experiences for a B2C marketing platform&apos;s
+              strategists along the way. At BairesDev, I worked with
+              JavaScript, using the platform&apos;s API to build custom
+              digital experiences for a B2C marketing platform&apos;s
               biggest clients.
             </p>
             <p className="portfolio-body portfolio-body-dark">
-              Today, that same drive to build things end-to-end lives on in
-              Haze Lab Studio, the independent product studio I founded,
-              where I get to take projects — including a mobile app built
-              with React Native — from idea through to launch. We&apos;ll
-              soon be releasing our first app.
+              That same drive to build things end-to-end lives on in Haze Lab
+              Studio, the independent product studio I founded in 2024, where
+              I take freelance and personal projects from idea through to
+              launch — including My Mood Cycle, a mobile app built with React
+              Native, Expo, and TypeScript that&apos;s currently in the
+              app-store publishing process.
             </p>
           </div>
         </div>
